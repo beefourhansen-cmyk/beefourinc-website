@@ -7,78 +7,156 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        :root {
+            --ink: #17130d;
+            --muted: #6f6557;
+            --paper: #fbf7ef;
+            --card: rgba(255, 252, 246, 0.88);
+            --line: rgba(119, 91, 43, 0.16);
+            --gold: #c8912f;
+            --gold-soft: #f3d28a;
+            --deep: #15110b;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 15% 8%, rgba(243, 210, 138, 0.38), transparent 30%),
+                radial-gradient(circle at 92% 2%, rgba(200, 145, 47, 0.18), transparent 28%),
+                linear-gradient(180deg, #fffaf0 0%, #f8f1e4 48%, #f4eadb 100%);
+            color: var(--ink);
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.28;
+            background-image:
+                linear-gradient(30deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08)),
+                linear-gradient(150deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08)),
+                linear-gradient(30deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08)),
+                linear-gradient(150deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08));
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px;
+            background-size: 40px 70px;
+            mask-image: linear-gradient(180deg, rgba(0,0,0,.72), transparent 55%);
+        }
+
+        .glass {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            box-shadow: 0 24px 80px rgba(92, 64, 21, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+        }
+
+        .hairline { border-color: var(--line); }
+
+        .gold-text {
+            background: linear-gradient(135deg, #7b4d0e 0%, #c8912f 42%, #f3d28a 64%, #9c6717 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .registry-panel {
+            background:
+                radial-gradient(circle at 90% 0%, rgba(243, 210, 138, 0.18), transparent 34%),
+                linear-gradient(135deg, #1c160f 0%, #0f0c08 100%);
+            box-shadow: 0 24px 70px rgba(20, 13, 4, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-card {
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(200, 145, 47, 0.34);
+            box-shadow: 0 18px 48px rgba(92, 64, 21, 0.12);
+        }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 min-h-screen flex flex-col justify-between selection:bg-amber-200">
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-200 selection:text-stone-950">
 
-    <header class="border-b border-stone-200 bg-white">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header class="relative z-10 border-b border-amber-900/10 bg-white/70 backdrop-blur-xl">
+        <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between gap-6">
             <div class="flex items-center gap-3">
-                <img src="logo.png" alt="Bee Four Inc. Logo" class="w-9 h-9 rounded-lg shadow-2xs object-cover">
-                <span class="text-lg font-bold tracking-tight text-stone-900">Bee Four Inc.</span>
+                <img src="logo.png" alt="Bee Four Inc. Logo" class="w-11 h-11 rounded-2xl object-cover shadow-lg shadow-amber-900/10 ring-1 ring-white/80">
+                <div>
+                    <span class="block text-lg font-extrabold tracking-tight text-stone-950">Bee Four Inc.</span>
+                    <span class="block text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">Corporate Registry & Overview</span>
+                </div>
             </div>
-            <span class="text-2xs font-semibold uppercase tracking-wider bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full">
+            <span class="text-[10px] font-extrabold uppercase tracking-[0.22em] bg-amber-100/90 text-amber-900 px-3 py-1.5 rounded-full ring-1 ring-amber-300/50 shadow-sm">
                 Indigenous-Owned
             </span>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-10 flex-grow w-full">
+    <main class="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-16 flex-grow w-full">
         
-        <section class="max-w-none mb-10">
-            <h1 class="text-xl font-extrabold text-stone-900 tracking-tight mb-3">Corporate Profile</h1>
-            <p class="text-sm text-stone-600 leading-relaxed">
-                Bee Four Inc. is an Alberta corporation headquartered in Alberta and operating across Canada, with an additional business presence in Vancouver, British Columbia. 
-            </p>
-            <p class="text-sm text-stone-600 leading-relaxed mt-3">
-                Bee Four Inc. is 100% Indigenous-owned by a member of the Métis Nation of Alberta, home of its registered head office. With a regular presence in Vancouver, British Columbia, the corporation’s work includes many facets of Indigenous reconciliation, cultural awareness training, regulatory, permitting and compliance contracting, professional learning, digital products, mobile applications, and creative technology.
-            </p>
+        <section class="glass rounded-[2rem] p-7 md:p-10 mb-8 overflow-hidden relative">
+            <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
+            <div class="relative max-w-3xl">
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.26em] text-amber-700 mb-3">Corporate Profile</p>
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-stone-950 mb-5 leading-tight">Corporate Profile</h1>
+                <p class="text-[15px] md:text-base text-stone-650 leading-relaxed">
+                    Bee Four Inc. is an Alberta corporation headquartered in Alberta and operating across Canada, with an additional business presence in Vancouver, British Columbia. 
+                </p>
+                <p class="text-[15px] md:text-base text-stone-650 leading-relaxed mt-4">
+                    Bee Four Inc. is 100% Indigenous-owned by a member of the Métis Nation of Alberta, home of its registered head office. With a regular presence in Vancouver, British Columbia, the corporation’s work includes many facets of Indigenous reconciliation, cultural awareness training, regulatory, permitting and compliance contracting, professional learning, digital products, mobile applications, and creative technology.
+                </p>
+            </div>
         </section>
 
-        <hr class="border-stone-200 my-6">
-
-        <section class="mb-10">
-            <h2 class="text-2xs font-bold uppercase tracking-wider text-stone-400 mb-6">Divisions & Products Portfolio</h2>
-            <div class="grid gap-8 md:grid-cols-3">
+        <section class="glass rounded-[1.75rem] p-7 md:p-8 mb-8">
+            <div class="flex items-end justify-between gap-6 mb-6">
+                <h2 class="text-[11px] font-extrabold uppercase tracking-[0.26em] text-stone-500">Divisions & Products Portfolio</h2>
+                <div class="hidden sm:block h-px flex-1 hairline border-t"></div>
+            </div>
+            <div class="grid gap-5 md:grid-cols-3">
                 
-                <div class="flex flex-col items-start">
-                    <div class="h-10 flex items-center mb-2">
-                        <img src="logo_transparent_background.png" alt="OCI Logo" class="h-8 object-contain">
+                <div class="portfolio-card rounded-3xl bg-white/70 border border-amber-900/10 p-5 flex flex-col items-start">
+                    <div class="h-14 flex items-center mb-4">
+                        <img src="logo_transparent_background.png" alt="OCI Logo" class="h-10 object-contain drop-shadow-sm">
                     </div>
-                    <h3 class="font-bold text-stone-900 text-xs mb-1">Organization Culture Initiatives / OCI</h3>
-                    <p class="text-2xs text-stone-500 leading-relaxed mb-2">
+                    <h3 class="font-extrabold text-stone-950 text-sm mb-2 leading-snug">Organization Culture Initiatives / OCI</h3>
+                    <p class="text-[12px] text-stone-600 leading-relaxed mb-4">
                         Workplace culture, Indigenous engagement, and reconciliation education services.
                     </p>
-                    <a href="https://www.oci.solutions" target="_blank" class="text-2xs text-amber-700 hover:text-amber-900 font-medium underline inline-flex items-center gap-0.5">
+                    <a href="https://www.oci.solutions" target="_blank" class="mt-auto text-[12px] text-amber-800 hover:text-amber-950 font-bold underline decoration-amber-300 underline-offset-4 inline-flex items-center gap-1">
                         oci.solutions <span>→</span>
                     </a>
                 </div>
 
-                <div class="flex flex-col items-start">
-                    <div class="h-10 flex items-center mb-2">
-                        <img src="icon.png" alt="BeeFour Bitcoin Logo" class="h-8 w-8 rounded-md object-cover shadow-3xs">
+                <div class="portfolio-card rounded-3xl bg-white/70 border border-amber-900/10 p-5 flex flex-col items-start">
+                    <div class="h-14 flex items-center mb-4">
+                        <img src="icon.png" alt="BeeFour Bitcoin Logo" class="h-11 w-11 rounded-2xl object-cover shadow-lg shadow-amber-900/10 ring-1 ring-white/80">
                     </div>
-                    <h3 class="font-bold text-stone-900 text-xs mb-1">BeeFour Bitcoin</h3>
-                    <p class="text-2xs text-stone-500 leading-relaxed mb-2">
+                    <h3 class="font-extrabold text-stone-950 text-sm mb-2 leading-snug">BeeFour Bitcoin</h3>
+                    <p class="text-[12px] text-stone-600 leading-relaxed mb-4">
                         Honeybee-themed mobile entertainment featuring mining simulation and rewards.
                     </p>
-                    <a href="https://www.beefourbitcoin.com" target="_blank" class="text-2xs text-amber-700 hover:text-amber-900 font-medium underline inline-flex items-center gap-0.5">
+                    <a href="https://www.beefourbitcoin.com" target="_blank" class="mt-auto text-[12px] text-amber-800 hover:text-amber-950 font-bold underline decoration-amber-300 underline-offset-4 inline-flex items-center gap-1">
                         beefourbitcoin.com <span>→</span>
                     </a>
                 </div>
 
-                <div class="flex flex-col items-start">
-                    <div class="h-10 flex items-center mb-2">
-                        <img src="icon_2.png" alt="Cricket Crypto Pro Logo" class="h-8 w-8 rounded-md object-cover shadow-3xs">
+                <div class="portfolio-card rounded-3xl bg-white/70 border border-amber-900/10 p-5 flex flex-col items-start">
+                    <div class="h-14 flex items-center mb-4">
+                        <img src="icon_2.png" alt="Cricket Crypto Pro Logo" class="h-11 w-11 rounded-2xl object-cover shadow-lg shadow-amber-900/10 ring-1 ring-white/80">
                     </div>
-                    <h3 class="font-bold text-stone-900 text-xs mb-1">Cricket Crypto Pro</h3>
-                    <p class="text-2xs text-stone-500 leading-relaxed mb-2">
+                    <h3 class="font-extrabold text-stone-950 text-sm mb-2 leading-snug">Cricket Crypto Pro</h3>
+                    <p class="text-[12px] text-stone-600 leading-relaxed mb-4">
                         Cricket-inspired mobile entertainment and digital rewards strategy application.
                     </p>
-                    <a href="https://www.cricket.beefourbitcoin.com" target="_blank" class="text-2xs text-amber-700 hover:text-amber-900 font-medium underline inline-flex items-center gap-0.5">
+                    <a href="https://www.cricket.beefourbitcoin.com" target="_blank" class="mt-auto text-[12px] text-amber-800 hover:text-amber-950 font-bold underline decoration-amber-300 underline-offset-4 inline-flex items-center gap-1">
                         cricket.beefourbitcoin.com <span>→</span>
                     </a>
                 </div>
@@ -86,58 +164,59 @@
             </div>
         </section>
 
-        <hr class="border-stone-200 my-6">
-
-        <section class="bg-stone-900 text-stone-100 p-6 rounded-xl shadow-inner">
-            <h2 class="text-2xs font-bold text-amber-400 mb-5 tracking-wide uppercase">Official Corporate Registry Data</h2>
+        <section class="registry-panel text-stone-100 p-7 md:p-8 rounded-[1.75rem] border border-amber-200/10">
+            <div class="flex items-center justify-between gap-6 mb-7">
+                <h2 class="text-[11px] font-extrabold text-amber-300 tracking-[0.26em] uppercase">Official Corporate Registry Data</h2>
+                <div class="hidden sm:block h-px flex-1 border-t border-amber-100/10"></div>
+            </div>
             
-            <div class="grid gap-5 sm:grid-cols-2 text-2xs">
-                <div>
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Legal Name</span>
-                    <span class="font-semibold text-white text-xs">Bee Four Inc.</span>
+            <div class="grid gap-5 sm:grid-cols-2 text-[12px]">
+                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Legal Name</span>
+                    <span class="font-bold text-white text-sm">Bee Four Inc.</span>
                 </div>
-                <div>
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Corporate Registration Number</span>
-                    <span class="font-mono text-amber-300 text-xs">AB-2012297715</span>
+                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Corporate Registration Number</span>
+                    <span class="font-mono text-amber-200 text-sm">AB-2012297715</span>
                 </div>
-                <div class="sm:col-span-2">
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Jurisdiction</span>
-                    <span class="text-stone-200">Alberta, Canada</span>
+                <div class="sm:col-span-2 rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Jurisdiction</span>
+                    <span class="text-stone-100">Alberta, Canada</span>
                 </div>
-                <div>
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Registered Office Address (CRA)</span>
-                    <span class="text-stone-200 leading-relaxed block font-mono">
+                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Registered Office Address (CRA)</span>
+                    <span class="text-stone-100 leading-relaxed block font-mono">
                         SW10-43-1W5M/PO BOX 987<br>
                         RIMBEY, AB, T0C 2J0
                     </span>
                 </div>
-                <div>
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Regional Operating Presence</span>
-                    <span class="text-stone-200 leading-relaxed block">
+                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Regional Operating Presence</span>
+                    <span class="text-stone-100 leading-relaxed block">
                         2913-89 Nelson St.<br>
                         Vancouver, BC, V6B 0E6
                     </span>
                 </div>
-                <div>
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Primary Corporate Contact</span>
-                    <span class="text-stone-200 block font-medium">Bryan Hansen, CEO</span>
-                    <span class="text-stone-400 block mt-0.5">Phone: 604.818.6174</span>
+                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Primary Corporate Contact</span>
+                    <span class="text-stone-100 block font-semibold">Bryan Hansen, CEO</span>
+                    <span class="text-stone-400 block mt-1">Phone: 604.818.6174</span>
                 </div>
-                <div>
-                    <span class="block text-stone-400 uppercase tracking-wider mb-0.5">Corporate Enquiries</span>
-                    <a href="mailto:bryan@oci.solutions" class="text-amber-400 hover:underline block mt-0.5">bryan@oci.solutions</a>
+                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Corporate Enquiries</span>
+                    <a href="mailto:bryan@oci.solutions" class="text-amber-300 hover:text-amber-200 hover:underline block mt-1 font-semibold">bryan@oci.solutions</a>
                 </div>
             </div>
             
-            <div class="mt-6 pt-4 border-t border-stone-800 text-3xs text-stone-400 leading-relaxed">
+            <div class="mt-7 pt-5 border-t border-white/10 text-[11px] text-stone-400 leading-relaxed">
                 Bee Four Inc. operates multiple public-facing business divisions, web properties, mobile applications, and digital utility assets across provincial boundaries.
             </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-stone-200 bg-white py-4 text-center text-2xs text-stone-500">
-        <div class="max-w-4xl mx-auto px-6">
+    <footer class="relative z-10 border-t border-amber-900/10 bg-white/70 backdrop-blur-xl py-5 text-center text-[11px] text-stone-500">
+        <div class="max-w-5xl mx-auto px-6">
             &copy; 2026 Bee Four Inc. All rights reserved.
         </div>
     </footer>
