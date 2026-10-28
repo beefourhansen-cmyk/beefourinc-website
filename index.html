@@ -1,225 +1,777 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bee Four Inc. | Corporate Registry & Overview</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ink: #17130d;
-            --muted: #6f6557;
-            --paper: #fbf7ef;
-            --card: rgba(255, 252, 246, 0.88);
-            --line: rgba(119, 91, 43, 0.16);
-            --gold: #c8912f;
-            --gold-soft: #f3d28a;
-            --deep: #15110b;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeeFour Bitcoin — Stack Sats. Build Wealth. Do Good.</title>
+  <meta name="description" content="BeeFour Bitcoin is a mobile Bitcoin rewards game where you activate bee bots, stack sats, collect HoneyBees, and give back." />
+  <meta property="og:title" content="BeeFour Bitcoin" />
+  <meta property="og:description" content="Stack sats. Build wealth. Do good. Join the hive." />
+  <meta property="og:image" content="feature_graphic.png" />
+  <link rel="canonical" href="https://www.beefourbitcoin.com/" />
+  <meta name="theme-color" content="#070804" />
+  <style>
+    :root {
+      --bg: #050604;
+      --bg-2: #0a0c08;
+      --panel: rgba(17, 16, 10, 0.72);
+      --panel-strong: rgba(22, 18, 9, 0.92);
+      --gold: #f8c84e;
+      --gold-2: #d49a20;
+      --gold-3: #8d5f0f;
+      --honey: #ffb21f;
+      --white: #fff8df;
+      --muted: #b8ae91;
+      --soft: #776d55;
+      --line: rgba(248, 200, 78, 0.18);
+      --glow: 0 0 42px rgba(248, 183, 40, 0.26), 0 0 100px rgba(255, 169, 21, 0.11);
+      --radius: 26px;
+      --max: 1180px;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: "Trebuchet MS", Inter, ui-sans-serif, system-ui, sans-serif;
+    }
 
-        html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 75% 0%, rgba(248, 170, 34, 0.2), transparent 34rem),
+        radial-gradient(circle at 14% 20%, rgba(248, 200, 78, 0.12), transparent 30rem),
+        linear-gradient(180deg, #070805 0%, #050604 44%, #090907 100%);
+      color: var(--white);
+      font-family: var(--font);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background:
-                radial-gradient(circle at 15% 8%, rgba(243, 210, 138, 0.38), transparent 30%),
-                radial-gradient(circle at 92% 2%, rgba(200, 145, 47, 0.18), transparent 28%),
-                linear-gradient(180deg, #fffaf0 0%, #f8f1e4 48%, #f4eadb 100%);
-            color: var(--ink);
-            min-height: 100vh;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(30deg, rgba(248, 200, 78, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(248, 200, 78, 0.08) 87.5%, rgba(248, 200, 78, 0.08)),
+        linear-gradient(150deg, rgba(248, 200, 78, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(248, 200, 78, 0.08) 87.5%, rgba(248, 200, 78, 0.08)),
+        linear-gradient(30deg, rgba(248, 200, 78, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(248, 200, 78, 0.08) 87.5%, rgba(248, 200, 78, 0.08)),
+        linear-gradient(150deg, rgba(248, 200, 78, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(248, 200, 78, 0.08) 87.5%, rgba(248, 200, 78, 0.08));
+      background-size: 92px 161px;
+      background-position: 0 0, 0 0, 46px 80px, 46px 80px;
+      mask-image: radial-gradient(circle at 50% 20%, #000, transparent 70%);
+    }
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.28;
-            background-image:
-                linear-gradient(30deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08)),
-                linear-gradient(150deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08)),
-                linear-gradient(30deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08)),
-                linear-gradient(150deg, rgba(124, 92, 37, 0.08) 12%, transparent 12.5%, transparent 87%, rgba(124, 92, 37, 0.08) 87.5%, rgba(124, 92, 37, 0.08));
-            background-position: 0 0, 0 0, 20px 35px, 20px 35px;
-            background-size: 40px 70px;
-            mask-image: linear-gradient(180deg, rgba(0,0,0,.72), transparent 55%);
-        }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.2) 58%, rgba(0,0,0,0.78) 100%);
+    }
 
-        .glass {
-            background: var(--card);
-            border: 1px solid rgba(255, 255, 255, 0.78);
-            box-shadow: 0 24px 80px rgba(92, 64, 21, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(18px);
-        }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
 
-        .hairline { border-color: var(--line); }
+    .shell { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
 
-        .gold-text {
-            background: linear-gradient(135deg, #7b4d0e 0%, #c8912f 42%, #f3d28a 64%, #9c6717 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 6, 4, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
 
-        .registry-panel {
-            background:
-                radial-gradient(circle at 90% 0%, rgba(243, 210, 138, 0.18), transparent 34%),
-                linear-gradient(135deg, #1c160f 0%, #0f0c08 100%);
-            box-shadow: 0 24px 70px rgba(20, 13, 4, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        }
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-        .portfolio-card {
-            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-        }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-        .portfolio-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(200, 145, 47, 0.34);
-            box-shadow: 0 18px 48px rgba(92, 64, 21, 0.12);
-        }
-    </style>
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      box-shadow: 0 0 28px rgba(248, 200, 78, 0.32);
+    }
+
+    .brand span { color: var(--gold); }
+
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 13px; color: var(--muted); }
+    .nav-links a { text-decoration: none; transition: 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(248, 200, 78, 0.26);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--glow); border-color: rgba(248, 200, 78, 0.62); }
+    .btn-primary { color: #151006; background: linear-gradient(135deg, #fff0a8 0%, #f8c84e 35%, #b87712 100%); }
+    .btn-ghost { color: var(--gold); background: rgba(248, 200, 78, 0.06); }
+
+    .hero { padding: 72px 0 42px; position: relative; }
+
+    .hero-content {
+      max-width: 840px;
+      margin: 0 auto 54px;
+      text-align: center;
+    }
+
+    .hero-content .eyebrow {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-content .actions {
+      justify-content: center;
+    }
+
+    .hero-content .stats {
+      max-width: 540px;
+      margin: 36px auto 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--gold);
+      border: 1px solid var(--line);
+      background: rgba(248, 200, 78, 0.06);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 22px;
+    }
+
+    h1, h2, h3 { font-family: var(--display); line-height: 1.05; }
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      margin: 0;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .gold-text {
+      background: linear-gradient(180deg, #fff7c9 0%, #f7c64a 46%, #9f650d 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 42px rgba(248, 200, 78, 0.12);
+    }
+
+    .hero-copy {
+      margin: 24px auto 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .hero-copy strong { color: var(--white); }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; align-items: center; }
+
+    .store-badges { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 14px;
+      transition: transform .2s ease, filter .2s ease;
+      text-decoration: none;
+    }
+    .store-badge:hover { transform: translateY(-2px); filter: drop-shadow(0 0 22px rgba(248,200,78,.25)); }
+    .store-badge img { height: 54px; width: auto; object-fit: contain; }
+    .store-badge.app-store img { height: 48px; }
+    .store-badge.disabled { opacity: .58; filter: grayscale(.25); cursor: default; }
+    .store-badge.disabled:hover { transform: none; filter: grayscale(.25); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(0,0,0,0.25);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .stat b { display: block; color: var(--gold); font-size: 1.1rem; }
+    .stat span { color: var(--soft); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .feature-row-container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .feature-frame {
+      position: relative;
+      border-radius: 34px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(255, 238, 167, 0.4), rgba(248, 200, 78, 0.15), rgba(81, 47, 3, 0.35));
+      box-shadow: var(--glow);
+    }
+
+    .feature-frame::before {
+      content: "";
+      position: absolute;
+      inset: -26px;
+      z-index: -1;
+      background: radial-gradient(circle at 50% 50%, rgba(248, 200, 78, 0.25), transparent 70%);
+      filter: blur(12px);
+    }
+
+    .feature-frame img {
+      width: 100%;
+      height: auto;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--soft);
+      font-size: 12px;
+      margin: 14px 6px 0;
+    }
+
+    section { padding: 74px 0; }
+    .section-head { max-width: 760px; margin-bottom: 28px; }
+    .kicker { color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 12px; }
+    h2 { font-size: clamp(2rem, 4vw, 4rem); margin: 0 0 14px; letter-spacing: -0.04em; }
+    .lead { color: var(--muted); font-size: 1.08rem; margin: 0; }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(248,200,78,0.07), rgba(248,200,78,0.025)), var(--panel);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card { padding: 24px; position: relative; overflow: hidden; }
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -55px;
+      top: -55px;
+      border-radius: 999px;
+      background: rgba(248, 200, 78, 0.1);
+      filter: blur(2px);
+    }
+    .icon {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: radial-gradient(circle at 50% 20%, rgba(255,240,168,.9), rgba(248,200,78,.2) 48%, rgba(0,0,0,.18));
+      border: 1px solid rgba(248,200,78,.26);
+      box-shadow: 0 12px 30px rgba(248, 200, 78, 0.18), inset 0 1px 0 rgba(255,255,255,.14);
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+    .icon img { width: 62px; height: 62px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(248,200,78,.28)); }
+    .card h3 { margin: 0 0 10px; font-size: 1.1rem; letter-spacing: -0.01em; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    .swarm-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .bot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .bot {
+      padding: 16px;
+      text-align: center;
+      min-height: 198px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .bot:hover { transform: translateY(-4px); border-color: rgba(248, 200, 78, 0.55); }
+    .bot img { width: 94px; height: 94px; object-fit: contain; margin: 0 auto 10px; filter: drop-shadow(0 0 18px rgba(248,200,78,0.18)); }
+    .bot b { display: block; font-size: 0.96rem; }
+    .bot .rate { color: var(--gold); font-weight: 900; font-size: 0.82rem; margin-top: 4px; }
+    .bot .price { color: var(--soft); font-size: 0.82rem; }
+    .queen { background: linear-gradient(180deg, rgba(248,200,78,0.16), rgba(248,200,78,0.03)); border-color: rgba(248, 200, 78, 0.42); }
+
+    .hive-pass-card {
+      margin-top: 18px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 22px;
+      align-items: center;
+      border-color: rgba(248,200,78,.52);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(255,240,168,.22), transparent 18rem),
+        radial-gradient(circle at 86% 22%, rgba(248,200,78,.24), transparent 16rem),
+        linear-gradient(135deg, rgba(248,200,78,.2), rgba(248,200,78,.035));
+    }
+    .hive-pass-card img { width: 112px; height: 112px; object-fit: contain; filter: drop-shadow(0 0 28px rgba(248,200,78,.34)); }
+    .hive-pass-card h3 { margin: 0 0 8px; font-size: 1.8rem; }
+    .hive-pass-card p { margin: 0; color: var(--muted); }
+    .hive-pass-pill {
+      color: #171005;
+      background: linear-gradient(135deg, #fff0a8, #f8c84e 45%, #a7680e);
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .mission { padding: 34px; display: flex; flex-direction: column; justify-content: space-between; }
+    .mission p { color: var(--muted); margin: 0 0 18px; }
+    .mission strong { color: var(--white); }
+    .quote {
+      color: var(--gold);
+      font-size: clamp(1.6rem, 3vw, 2.65rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-top: 22px;
+    }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: steps; }
+    .step { padding: 26px; counter-increment: steps; }
+    .step::before {
+      content: "0" counter(steps);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      background: rgba(248, 200, 78, 0.1);
+      color: var(--gold);
+      border: 1px solid var(--line);
+      font-weight: 900;
+    }
+    .step h3 { margin: 0 0 10px; font-size: 1.25rem; }
+    .step p { margin: 0; color: var(--muted); }
+
+    .cta {
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(248, 200, 78, 0.22), transparent 28rem),
+        linear-gradient(135deg, rgba(248, 200, 78, 0.11), rgba(248, 200, 78, 0.025));
+    }
+    .cta h2 { font-size: clamp(2rem, 4vw, 3.45rem); }
+    .cta p { color: var(--muted); margin: 0; }
+
+    .legal-grid { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 18px; }
+    .support-card { padding: 28px; }
+    .support-card p { color: var(--muted); margin: 0 0 14px; }
+    .support-card a { color: var(--gold); text-decoration: none; font-weight: 800; }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(0,0,0,0.22);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      padding: 18px 20px;
+      color: var(--gold);
+      font-weight: 900;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; float: right; color: var(--soft); }
+    details[open] summary::after { content: "–"; }
+    .legal-body { padding: 0 20px 20px; color: var(--muted); font-size: 0.9rem; }
+    .legal-body h3 { color: var(--white); margin: 24px 0 8px; font-size: 1rem; }
+    .legal-body p { margin: 0 0 14px; }
+    .legal-body strong { color: var(--white); }
+
+    footer { padding: 42px 0 54px; border-top: 1px solid var(--line); color: var(--soft); }
+    .footer-grid { display: flex; justify-content: space-between; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+
+    @media (max-width: 920px) {
+      .swarm-wrap, .legal-grid, .cta, .hive-pass-card { grid-template-columns: 1fr; }
+      .feature-cards { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero { padding-top: 44px; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 24px, var(--max)); }
+      .nav-inner { min-height: 64px; }
+      .brand span { font-size: 0.86rem; }
+      .brand img { width: 38px; height: 38px; }
+      .feature-cards, .bot-grid, .stats { grid-template-columns: 1fr; }
+      section { padding: 52px 0; }
+      .hero { padding-bottom: 28px; }
+      .feature-frame { border-radius: 22px; padding: 6px; }
+      .feature-frame img { border-radius: 17px; }
+      .card, .step, .mission, .support-card, .cta { padding: 22px; }
+      .actions .btn { width: 100%; }
+      .caption { flex-direction: column; gap: 4px; }
+      .store-badge img { height: 48px; }
+      .store-badge.app-store img { height: 43px; }
+      .hive-pass-card { grid-template-columns: 1fr; text-align: center; }
+      .hive-pass-card img { margin: 0 auto; }
+    }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-amber-200 selection:text-stone-950">
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top" aria-label="BeeFour Bitcoin home">
+        <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/icon.png" alt="BeeFour Bitcoin icon" />
+        <span>BeeFour Bitcoin</span>
+      </a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#swarm">The Swarm</a>
+        <a href="#support">Support</a>
+        <a href="#legal">Privacy & Terms</a>
+      </div>
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.beefour.bitcoin" target="_blank" rel="noopener">Get the App</a>
+    </div>
+  </nav>
 
-    <header class="relative z-10 border-b border-amber-900/10 bg-white/70 backdrop-blur-xl">
-        <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <img src="logo.png" alt="Bee Four Inc. Logo" class="w-11 h-11 rounded-2xl object-cover shadow-lg shadow-amber-900/10 ring-1 ring-white/80">
-                <div>
-                    <span class="block text-lg font-extrabold tracking-tight text-stone-950">Bee Four Inc.</span>
-                    <span class="block text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">Corporate Registry & Overview</span>
-                </div>
-            </div>
-            <span class="text-[10px] font-extrabold uppercase tracking-[0.22em] bg-amber-100/90 text-amber-900 px-3 py-1.5 rounded-full ring-1 ring-amber-300/50 shadow-sm">
-                Indigenous-Owned
+  <main id="top">
+    <header class="hero">
+      <div class="shell">
+
+        <div class="hero-content">
+          <div class="eyebrow">🐝 Mobile rewards game</div>
+          <h1><span class="gold-text">Stack sats.</span><br />Build wealth. Do good.</h1>
+          <p class="hero-copy"><strong>BeeFour Bitcoin</strong> turns mining into a glossy, bee-powered mobile game: activate bots, collect HoneyBees, earn satoshis, and choose whether to withdraw or give back.</p>
+
+          <div class="actions store-badges" aria-label="Download BeeFour Bitcoin">
+            <a class="store-badge google-play" href="https://play.google.com/store/apps/details?id=com.beefour.bitcoin" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+            </a>
+            <span class="store-badge app-store disabled" aria-label="Download on the App Store coming soon">
+              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
             </span>
+            <a class="btn btn-ghost" href="#swarm">Meet the Bots</a>
+          </div>
+
+          <div class="stats" aria-label="App highlights">
+            <div class="stat"><b>Earn Sats</b><span>Real BTC</span></div>
+            <div class="stat"><b>HoneyBees</b><span>Collect traits</span></div>
+            <div class="stat"><b>Give Back</b><span>Donate rewards</span></div>
+          </div>
         </div>
+
+        <div class="feature-row-container">
+          <div class="feature-frame" aria-label="Global Swarm Feature Graphic">
+            <img src="feature_graphic.png" alt="BeeFour Bitcoin Global Swarm Feature Graphic showing localized interfaces for Western, German, and Eastern configurations" />
+            <div class="caption">
+              <span>Ecosystem Feature Profile: <strong>feature_graphic.png</strong></span>
+              <span>GLOBAL SWARM STATUS: VERIFIED</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </header>
 
-    <main class="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-16 flex-grow w-full">
-        
-        <section class="glass rounded-[2rem] p-7 md:p-10 mb-8 overflow-hidden relative">
-            <div class="absolute -right-24 -top-24 w-72 h-72 rounded-full bg-amber-300/20 blur-3xl"></div>
-            <div class="relative max-w-3xl">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.26em] text-amber-700 mb-3">Corporate Profile</p>
-                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-stone-950 mb-5 leading-tight">Corporate Profile</h1>
-                <p class="text-[15px] md:text-base text-stone-650 leading-relaxed">
-                    Bee Four Inc. is an Alberta corporation headquartered in Alberta and operating across Canada, with an additional business presence in Vancouver, British Columbia. D-U-N-S Number: 243368437.
-                </p>
-                <p class="text-[15px] md:text-base text-stone-650 leading-relaxed mt-4">
-                    Bee Four Inc. is 100% Indigenous-owned by a member of the Métis Nation of Alberta, home of its registered head office. With a regular presence in Vancouver, British Columbia, the corporation’s work includes many facets of Indigenous reconciliation, cultural awareness training, regulatory, permitting and compliance contracting, professional learning, digital products, mobile applications, and creative technology.
-                </p>
-            </div>
-        </section>
-
-        <section class="glass rounded-[1.75rem] p-7 md:p-8 mb-8">
-            <div class="flex items-end justify-between gap-6 mb-6">
-                <h2 class="text-[11px] font-extrabold uppercase tracking-[0.26em] text-stone-500">Divisions & Products Portfolio</h2>
-                <div class="hidden sm:block h-px flex-1 hairline border-t"></div>
-            </div>
-            <div class="grid gap-5 md:grid-cols-3">
-                
-                <div class="portfolio-card rounded-3xl bg-white/70 border border-amber-900/10 p-5 flex flex-col items-start">
-                    <div class="h-14 flex items-center mb-4">
-                        <img src="logo_transparent_background.png" alt="OCI Logo" class="h-10 object-contain drop-shadow-sm">
-                    </div>
-                    <h3 class="font-extrabold text-stone-950 text-sm mb-2 leading-snug">Organization Culture Initiatives / OCI</h3>
-                    <p class="text-[12px] text-stone-600 leading-relaxed mb-4">
-                        Workplace culture, Indigenous engagement, and reconciliation education services.
-                    </p>
-                    <a href="https://www.oci.solutions" target="_blank" class="mt-auto text-[12px] text-amber-800 hover:text-amber-950 font-bold underline decoration-amber-300 underline-offset-4 inline-flex items-center gap-1">
-                        oci.solutions <span>→</span>
-                    </a>
-                </div>
-
-                <div class="portfolio-card rounded-3xl bg-white/70 border border-amber-900/10 p-5 flex flex-col items-start">
-                    <div class="h-14 flex items-center mb-4">
-                        <img src="icon.png" alt="BeeFour Bitcoin Logo" class="h-11 w-11 rounded-2xl object-cover shadow-lg shadow-amber-900/10 ring-1 ring-white/80">
-                    </div>
-                    <h3 class="font-extrabold text-stone-950 text-sm mb-2 leading-snug">BeeFour Bitcoin</h3>
-                    <p class="text-[12px] text-stone-600 leading-relaxed mb-4">
-                        Honeybee-themed mobile entertainment featuring mining simulation and rewards.
-                    </p>
-                    <a href="https://www.beefourbitcoin.com" target="_blank" class="mt-auto text-[12px] text-amber-800 hover:text-amber-950 font-bold underline decoration-amber-300 underline-offset-4 inline-flex items-center gap-1">
-                        beefourbitcoin.com <span>→</span>
-                    </a>
-                </div>
-
-                <div class="portfolio-card rounded-3xl bg-white/70 border border-amber-900/10 p-5 flex flex-col items-start">
-                    <div class="h-14 flex items-center mb-4">
-                        <img src="icon_2.png" alt="Cricket Crypto Pro Logo" class="h-11 w-11 rounded-2xl object-cover shadow-lg shadow-amber-900/10 ring-1 ring-white/80">
-                    </div>
-                    <h3 class="font-extrabold text-stone-950 text-sm mb-2 leading-snug">Cricket Crypto Pro</h3>
-                    <p class="text-[12px] text-stone-600 leading-relaxed mb-4">
-                        Cricket-inspired mobile entertainment and digital rewards strategy application.
-                    </p>
-                    <a href="https://www.cricket.beefourbitcoin.com" target="_blank" class="mt-auto text-[12px] text-amber-800 hover:text-amber-950 font-bold underline decoration-amber-300 underline-offset-4 inline-flex items-center gap-1">
-                        cricket.beefourbitcoin.com <span>→</span>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="registry-panel text-stone-100 p-7 md:p-8 rounded-[1.75rem] border border-amber-200/10">
-            <div class="flex items-center justify-between gap-6 mb-7">
-                <h2 class="text-[11px] font-extrabold text-amber-300 tracking-[0.26em] uppercase">Official Corporate Registry Data</h2>
-                <div class="hidden sm:block h-px flex-1 border-t border-amber-100/10"></div>
-            </div>
-            
-            <div class="grid gap-5 sm:grid-cols-2 text-[12px]">
-                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Legal Name</span>
-                    <span class="font-bold text-white text-sm">Bee Four Inc.</span>
-                </div>
-                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Corporate Registration Number</span>
-                    <span class="font-mono text-amber-200 text-sm">AB-2012297715 and D-U-N-S Number 243368437</span>
-                </div>
-                <div class="sm:col-span-2 rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Jurisdiction</span>
-                    <span class="text-stone-100">Alberta, Canada</span>
-                </div>
-                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Registered Office Address (CRA)</span>
-                    <span class="text-stone-100 leading-relaxed block font-mono">
-                        SW10-43-1W5M/PO BOX 987<br>
-                        RIMBEY, AB, T0C 2J0
-                    </span>
-                </div>
-                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Regional Operating Presence</span>
-                    <span class="text-stone-100 leading-relaxed block">
-                        2913-89 Nelson St.<br>
-                        Vancouver, BC, V6B 0E6
-                    </span>
-                </div>
-                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Primary Corporate Contact</span>
-                    <span class="text-stone-100 block font-semibold">Bryan Hansen, CEO</span>
-                    <span class="text-stone-400 block mt-1">Phone: 604.818.6174</span>
-                </div>
-                <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                    <span class="block text-stone-400 uppercase tracking-[0.18em] mb-1 text-[10px] font-bold">Corporate Enquiries</span>
-                    <a href="mailto:bryan@oci.solutions" class="text-amber-300 hover:text-amber-200 hover:underline block mt-1 font-semibold">bryan@oci.solutions</a>
-                </div>
-            </div>
-            
-            <div class="mt-7 pt-5 border-t border-white/10 text-[11px] text-stone-400 leading-relaxed">
-                Bee Four Inc. operates multiple public-facing business divisions, web properties, mobile applications, and digital utility assets across provincial boundaries. D-U-N-S Number: 243368437
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="relative z-10 border-t border-amber-900/10 bg-white/70 backdrop-blur-xl py-5 text-center text-[11px] text-stone-500">
-        <div class="max-w-5xl mx-auto px-6">
-            &copy; 2026 Bee Four Inc. All rights reserved.
+    <section id="features">
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">The hive loop</div>
+          <h2>Looks premium. Plays simple. Feels rewarding.</h2>
+          <p class="lead">A polished Bitcoin rewards experience built around clear actions, lovable bots, collectible progression, and a give-back mechanic that makes every tap feel like it matters.</p>
         </div>
-    </footer>
+        <div class="feature-cards">
+          <article class="panel card">
+            <div class="icon"><img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/googleplayworkerbee.png" alt="Worker Bee bot" /></div>
+            <h3>Mine Bitcoin</h3>
+            <p>Activate bee bots, stack satoshis, and withdraw via Lightning Network or BTC mainnet when thresholds are met.</p>
+          </article>
+          <article class="panel card">
+            <div class="icon"><img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20scout%20bee%20bot.png" alt="Scout Bee bot" /></div>
+            <h3>Collect HoneyBees</h3>
+            <p>Each activation can mint a unique in-app HoneyBee collectible with randomized traits and rarity tiers.</p>
+          </article>
+          <article class="panel card">
+            <div class="icon"><img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20hivebot%203.png" alt="Hive Bot collectible" /></div>
+            <h3>Make It Count</h3>
+            <p>Users can donate earnings to verified charitable organizations supporting animals, forests, and communities.</p>
+          </article>
+          <article class="panel card">
+            <div class="icon"><img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20queen%20bee.png" alt="Queen Bee bot" /></div>
+            <h3>Build Your Swarm</h3>
+            <p>Invite friends, unlock boosts, and grow from Worker Bee energy to full Queen Bee status.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="swarm">
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">The swarm</div>
+          <h2>Choose your bee bot.</h2>
+          <p class="lead">From starter bots to premium hive power, every bee adds a little more buzz to the mining experience.</p>
+        </div>
+        <div class="swarm-wrap">
+          <div class="bot-grid">
+            <article class="panel bot">
+              <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/googleplayworkerbee.png" alt="Worker Bee" />
+              <b>Worker Bee</b>
+              <div class="rate">15 Gh/s</div>
+            </article>
+            <article class="panel bot">
+              <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20scout%20bee%20bot.png" alt="Scout Bee" />
+              <b>Scout Bee</b>
+              <div class="rate">100 Gh/s</div>
+            </article>
+            <article class="panel bot">
+              <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20hivebot%203.png" alt="Hive Bot 3" />
+              <b>Hive Bot 3</b>
+              <div class="rate">1.1 Th/s</div>
+            </article>
+            <article class="panel bot">
+              <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20hive%20bot%207.png" alt="Hive Bot 7" />
+              <b>Hive Bot 7</b>
+              <div class="rate">5 Th/s</div>
+            </article>
+            <article class="panel bot queen">
+              <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20queen%20bee.png" alt="Queen Bee" />
+              <b>Queen Bee</b>
+              <div class="rate">25 Th/s</div>
+            </article>
+          </div>
+
+          <aside class="panel mission">
+            <div>
+              <div class="kicker">Before Bitcoin</div>
+              <h2>Good happens first.</h2>
+              <p>BeeFour Bitcoin is a mobile Bitcoin mining rewards app and a division of <strong>Bee Four Inc.</strong> It lets users mine Bitcoin on their phone, mint unique HoneyBee collectibles, and choose to withdraw earnings or donate them to verified charitable organizations.</p>
+              <p>Free to download, with optional premium bee bots available through in-app purchase.</p>
+            </div>
+            <div class="quote">Save. Earn. Give. Repeat.</div>
+          </aside>
+        </div>
+
+        <article class="panel hive-pass-card">
+          <img src="https://raw.githubusercontent.com/beefourhansen-cmyk/beefourbitcoinassets/main/google%20play%20scout%20bee%20bot.png" alt="Scout Bee representing Hive Pass" />
+          <div>
+            <div class="kicker">Hive Pass</div>
+            <h3>Give the whole swarm a golden boost.</h3>
+            <p>A premium membership-style upgrade for players who want the full BeeFour Bitcoin experience without making the page feel like a price sheet. The store handles regional pricing, taxes, and purchase flow.</p>
+          </div>
+          <div class="hive-pass-pill">2× Hive Energy</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <div class="kicker">How it works</div>
+          <h2>Three taps. Full buzz.</h2>
+        </div>
+        <div class="steps">
+          <article class="panel step">
+            <h3>Activate</h3>
+            <p>Start a bot session and watch your satoshi counter come alive with bee-powered momentum.</p>
+          </article>
+          <article class="panel step">
+            <h3>Collect</h3>
+            <p>Mine HoneyBees, chase rare traits, and build a swarm that feels personal.</p>
+          </article>
+          <article class="panel step">
+            <h3>Withdraw or Donate</h3>
+            <p>Send sats to a wallet or turn rewards into real-world support for verified causes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="panel cta">
+          <div>
+            <div class="kicker">Join the hive</div>
+            <h2>Ready to stack?</h2>
+            <p>Available now on Google Play for Android. App Store release coming soon.</p>
+          </div>
+          <div class="actions store-badges" style="margin:0" aria-label="Store badges">
+            <a class="store-badge google-play" href="https://play.google.com/store/apps/details?id=com.beefour.bitcoin" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+            </a>
+            <span class="store-badge app-store disabled" aria-label="Download on the App Store coming soon">
+              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="shell legal-grid">
+        <aside class="panel support-card">
+          <div class="kicker">Support</div>
+          <h2>Need a hand?</h2>
+          <p>Need help with BeeFour Bitcoin? The hive is here for you.</p>
+          <p><strong>Email:</strong><br /><a href="mailto:beefourbitcoin@gmail.com">beefourbitcoin@gmail.com</a></p>
+          <p><strong>Developer:</strong><br />Bee Four Inc., Vancouver, BC, Canada</p>
+          <p><strong>Website:</strong><br /><a href="https://www.beefourbitcoin.com">www.beefourbitcoin.com</a></p>
+          <p>We aim to respond to all support inquiries within 48 hours.</p>
+        </aside>
+
+        <div id="legal" class="panel support-card">
+          <div class="kicker">Trust center</div>
+          <h2>Privacy & terms</h2>
+
+          <details id="privacy">
+            <summary>Privacy Policy — Last updated June 15, 2026</summary>
+            <div class="legal-body">
+              <p>Bee Four Inc. ("we", "our", "us") operates the BeeFour Bitcoin mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our App.</p>
+              <h3>1. Information We Collect</h3>
+              <p><strong>Information you provide:</strong> Wallet addresses (when you request a withdrawal), charity donation preferences, and referral codes you choose to share.</p>
+              <p><strong>Automatically collected:</strong> Device type, operating system version, app usage analytics (pages viewed, features used, session duration), crash reports, and advertising identifiers for serving relevant ads.</p>
+              <p><strong>We do NOT collect:</strong> Your name, email address, phone number, government ID, financial account information, or any personal identity documents. You can use BeeFour Bitcoin without creating an account.</p>
+              <h3>2. How We Use Your Information</h3>
+              <p>We use collected information to: operate and maintain the App; process Bitcoin withdrawals to your provided wallet address; process charitable donations on your behalf; serve rewarded advertisements; improve App performance and user experience; monitor and analyze usage trends; and detect and prevent fraud or abuse.</p>
+              <h3>3. Advertising</h3>
+              <p>BeeFour Bitcoin displays rewarded advertisements through third-party ad networks. These networks may use advertising identifiers and device information to serve relevant ads. You may opt out of personalized advertising through your device settings. Revenue generated from advertisements funds Bitcoin rewards for users and donations to verified charitable organizations.</p>
+              <h3>4. Third-Party Services</h3>
+              <p>We may use third-party services including: ad networks (for serving rewarded advertisements), analytics providers (for App performance monitoring), payment processors (for processing Bitcoin withdrawals and in-app purchases), and Lightning Network service providers (for facilitating BTC transactions). Each third-party service operates under its own privacy policy.</p>
+              <h3>5. Advertising &amp; Analytics Partners</h3>
+              <p>BeeFour Bitcoin and the Bee Four Inc. portfolio apps (<em>Satoshi Santa</em>, <em>Spooky Satoshis</em>, <em>Pumpkin Protocol</em>, <em>Penguin Protocol</em>, <em>Maneki-Neko Miner</em>, and <em>Cricket Crypto</em>) are supported by rewarded and in-app advertising. We work with the following advertising mediation platforms, ad networks, and analytics providers, which may collect and process information on devices running our Apps:</p>
+              <p><strong>Google AdMob</strong> — our primary ad mediation platform and advertising network operated by Google LLC.</p>
+              <p><strong>Liftoff Monetize (Vungle)</strong> — an advertising network operated by Liftoff Mobile, Inc., served via Google AdMob mediation.</p>
+              <p><strong>Meta Audience Network</strong> — an advertising network operated by Meta Platforms, Inc., served via Google AdMob mediation.</p>
+              <p><strong>Pangle</strong> — an advertising network operated by ByteDance, served via Google AdMob mediation.</p>
+              <p><strong>Unity Ads</strong> — an advertising network operated by Unity Technologies, served via Google AdMob mediation.</p>
+              <p><strong>Appodeal</strong> — legacy ad mediation platform used on older app versions.</p>
+              <p><strong>Firebase / Google Analytics</strong> — used to measure App usage, performance, and stability.</p>
+              <p>These partners may collect or process: <strong>advertising identifiers</strong> (such as the Android Advertising ID or Apple's Identifier for Advertisers), used to measure ad performance and, where permitted, personalize ads; <strong>approximate location</strong> derived from your IP address (typically resolved to country or region), used for ad delivery, fraud prevention, and determining which privacy regulations — such as GDPR or US states privacy laws (CCPA/CPRA) — apply to you; <strong>device and app information</strong>, including device model, operating system version, app version, language, and time zone; <strong>ad interaction data</strong>, such as impressions, clicks, completions, and the placements where ads are shown; and <strong>usage patterns</strong>, including session activity, feature usage, and in-app events.</p>
+              <p><strong>Your choices:</strong> Where available, you can limit or opt out of personalized advertising or the "sale" / "sharing" of personal information through our in-app <strong>Privacy Options · Do Not Sell My Info</strong> button, your device settings, or the opt-out links below. Opting out does not stop ads from being shown, but restricts personalized ad targeting.</p>
+              <p>For more information about how these partners handle data, see their privacy policies: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google (AdMob, Firebase, Analytics)</a>, <a href="https://liftoff.io/privacy-policy/" target="_blank" rel="noopener">Liftoff Monetize (Vungle)</a>, <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta Audience Network</a>, <a href="https://www.pangleglobal.com/privacy" target="_blank" rel="noopener">Pangle</a>, <a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener">Unity Ads</a>, and <a href="https://www.appodeal.com/home/privacy-policy/" target="_blank" rel="noopener">Appodeal</a>.</p>
+              <h3>6. Charitable Donations</h3>
+              <p>When you choose to donate your earnings, we process donations to verified registered charitable organizations on your behalf. We share only the donation amount with the receiving charity — no personal information is transmitted. Charitable partners include registered Canadian charities.</p>
+              <h3>7. Data Security</h3>
+              <p>We implement commercially reasonable security measures to protect your information. Bitcoin wallet addresses are encrypted during transmission. No personal financial information is stored on your device. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+              <h3>8. Data Retention</h3>
+              <p>We retain your information only as long as necessary to provide our services and fulfill the purposes described in this policy. Transaction records are retained for a minimum of 12 months for audit and compliance purposes. You may request deletion of your data by contacting us at the email address below.</p>
+              <h3>9. Children's Privacy</h3>
+              <p>BeeFour Bitcoin is rated for all ages. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child, we will take steps to delete such information promptly.</p>
+              <h3>10. Your Rights</h3>
+              <p>Depending on your jurisdiction, you may have the right to: access the personal data we hold about you; request correction of inaccurate data; request deletion of your data; opt out of personalized advertising; and withdraw consent for data processing. To exercise any of these rights, please contact us using the information below.</p>
+              <h3>11. Changes to This Policy</h3>
+              <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy within the App and updating the "Last updated" date above. Your continued use of the App after any changes constitutes acceptance of the revised policy.</p>
+              <h3>12. Contact Us</h3>
+              <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact us:<br /><br /><strong>BeeFour Bitcoin</strong>, a division of Bee Four Inc.<br />Vancouver, BC, Canada<br /><a href="mailto:beefourbitcoin@gmail.com">beefourbitcoin@gmail.com</a></p>
+            </div>
+          </details>
+
+          <details id="terms">
+            <summary>Terms of Use — Last updated February 10, 2026</summary>
+            <div class="legal-body">
+              <p>By downloading or using BeeFour Bitcoin, you agree to the following terms:</p>
+              <p><strong>Nature of Service:</strong> BeeFour Bitcoin simulates a mining experience for education and entertainment purposes. Mining progress is depicted directly by participation in the rewards program, earning task-based Bitcoin that is sponsored. While there is no cost for hardware or electricity, the mining process can involve hardware wear and tear and maintenance, along with networking costs. These expenses are factored into our pricing as to not affect the user experience and gains.</p>
+              <p><strong>Bitcoin Earnings:</strong> Users earn real Bitcoin satoshis through engagement with the App. Earnings may be withdrawn to an external wallet via Lightning Network or BTC mainnet, or donated to a verified charitable organization. Minimum withdrawal thresholds apply. Withdrawal processing times may vary.</p>
+              <p><strong>HoneyBee NFTs:</strong> HoneyBee NFTs are in-app digital collectibles. They are not blockchain-based tokens at this time and have no cash value outside the App. Rarity is determined by randomization and does not constitute gambling.</p>
+              <p><strong>Not Financial Advice:</strong> This is not investment advice and all information we provide is for education and entertainment purposes only. We do not offer financial, legal, or investment advice. If you have concerns about risks or regulatory compliance please contact a financial professional.</p>
+              <p><strong>User Responsibility:</strong> The user is responsible for reporting income, and fully understanding the risks and complying with applicable legislation for Bitcoin Cloud Mining and NFT Minting, especially when profits are involved.</p>
+              <p><strong>In-App Purchases:</strong> Premium bee bots are available for purchase. All in-app purchases are processed through Apple's App Store or Google Play and are subject to the respective platform's terms and refund policies.</p>
+              <p><strong>Charitable Donations:</strong> Donations are made to verified registered charitable organizations. Bee Four Inc. facilitates donations on the user's behalf. Donation receipts and tax documentation are the responsibility of the receiving charitable organization.</p>
+              <p><strong>Termination:</strong> We reserve the right to suspend or terminate access to the App for users who violate these terms or engage in fraudulent activity.</p>
+            </div>
+          </details>
+          <details id="ccpa-opt-out" open>
+            <summary>Do Not Sell or Share My Personal Information — US States Privacy Laws</summary>
+            <div class="legal-body">
+              <p>Under US states privacy laws (including the California Consumer Privacy Act / CPRA, Virginia CDPA, Colorado CPA, Connecticut CTDPA, Utah UCPA, and other applicable state laws), residents have the right to opt out of the "sale" or "sharing" of their personal information (such as mobile advertising identifiers used for cross-context behavioral advertising).</p>
+              <h3>1. How to Opt Out Inside Any Bee Four Inc. Mobile App</h3>
+              <p>Every Bee Four Inc. mobile app (<strong>BeeFour Bitcoin</strong>, <strong>Satoshi Santa</strong>, <strong>Spooky Satoshis</strong>, <strong>Pumpkin Protocol</strong>, <strong>Penguin Protocol</strong>, <strong>Maneki-Neko Miner</strong>, and <strong>Cricket Crypto</strong>) includes a built-in <strong>"Privacy Options · Do Not Sell My Info"</strong> button in the Profile / Settings / Colony tab. Tapping it opens Google's User Messaging Platform (UMP) US State Privacy choice dialog and automatically propagates your opt-out signal (IAB <code>IABUSPrivacy_String</code>, Restricted Data Processing, Liftoff <code>VunglePrivacySettings.setCCPAStatus</code>, Meta Limited Data Use <code>LDU</code>, Pangle <code>setPAConsent</code>, and Unity Ads <code>privacy.consent</code>) to our mediation chain.</p>
+              <h3>2. Device-Level &amp; Partner Opt-Out Controls</h3>
+              <p>You can also opt out at the operating-system level or directly with each ad network in our mediation chain:</p>
+              <ul>
+                <li><strong>Android:</strong> Open <em>Settings → Google → All services → Ads</em> and select <strong>Delete advertising ID</strong> or opt out of Ads Personalization.</li>
+                <li><strong>iOS:</strong> Open <em>Settings → Privacy &amp; Security → Tracking</em> and toggle off <strong>Allow Apps to Request to Track</strong>.</li>
+                <li><strong>Google AdMob:</strong> <a href="https://myadcenter.google.com/" target="_blank" rel="noopener">Google My Ad Center</a></li>
+                <li><strong>Liftoff Monetize (Vungle):</strong> <a href="https://liftoff.io/opt-out/" target="_blank" rel="noopener">Liftoff / Vungle Do Not Sell Opt-Out</a></li>
+                <li><strong>Meta Audience Network:</strong> <a href="https://www.facebook.com/adpreferences/ad_settings" target="_blank" rel="noopener">Meta Ad Preferences</a></li>
+                <li><strong>Pangle:</strong> <a href="https://www.pangleglobal.com/privacy" target="_blank" rel="noopener">Pangle Privacy &amp; Data Rights</a></li>
+                <li><strong>Unity Ads:</strong> <a href="https://unity.com/legal/do-not-sell-my-personal-information" target="_blank" rel="noopener">Unity Do Not Sell or Share My Personal Information</a></li>
+              </ul>
+              <p>You may also email <a href="mailto:beefourbitcoin@gmail.com?subject=Do%20Not%20Sell%20or%20Share%20My%20Personal%20Information">beefourbitcoin@gmail.com</a> at any time to submit a US state privacy opt-out or data deletion request.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <strong style="color:var(--gold); letter-spacing:.1em; text-transform:uppercase;">BeeFour Bitcoin</strong><br />
+        <span>© 2026 BeeFour Bitcoin, a division of Bee Four Inc. Vancouver, BC, Canada.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#ccpa-opt-out">Do Not Sell or Share My Personal Information</a>
+        <a href="#terms">Terms</a>
+        <a href="mailto:beefourbitcoin@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
